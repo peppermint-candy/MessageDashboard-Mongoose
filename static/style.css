@@ -1,0 +1,35 @@
+
+
+.ct {
+	width: 90%;
+	min-height: 700px;
+	vertical-align: top;
+	background-color: lightblue; 
+	margin: 0 auto;
+
+}
+
+form {
+	margin-top: 10px;
+	margin-left: 10px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.post {
+	outline: 5px solid black;
+	padding-left: 10px;
+	width: 90%;
+	min-height: 250px;
+	vertical-align: top;
+	margin: 10px auto;
+	margin-left: 30px;
+	display: inline-block;
+	border-radius: 15px;
+	padding-bottom: 5px;
+
+}
+
+.comment {
+	margin-left: 10px;
+}

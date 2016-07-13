@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<title>Message Board</title>
+</head>
+<body>
+	<div class="ct">
+		<h1>The Dojo Message Board</h1>
+		<hr>
+		<div class="post">
+			<form action="/posting" method="post">
+				<label>Name:</label>
+				<input type="text" name="poster"><br><br>
+				<label>Mesage:</label><br>
+				<textarea name="post_message" cols="80" rows="5"></textarea><br>
+				<input type="submit" value="Post message">
+			</form>
+		</div><br>
+		<% if (posts){ %>
+		<% for ( var i = 0; i < posts.length; i ++) { %>
+		<div class="post">
+			<h2>Post by: <%= posts[i].name %></h2>
+			<p>Message: <%= posts[i].text %></p>
+
+
+			<% if (posts[i]._comments) { %> 
+			<% for (var j = 0; j < posts[i]._comments.length; j++) { %>
+			<p class="comment"><%= posts[i]._comments[j].name %> says :
+			Comment: <%= posts[i]._comments[j].text %></p>	
+			<% } %>
+			<% } %>
+			<form class="comment" action="/commenting/<%= posts[i].id %>" method="post" >
+				<label>Name:</label>
+				<input type="text" name="commenter"><br><br>
+				<label>Mesage:</label><br>
+				<textarea name="comment_message" cols="70" rows="5"></textarea><br>
+				<input type="submit" value="Comment">
+			</form>
+		</div>
+
+		<% } %>
+		<% } %>
+	</div>
+</body>
+</html>
